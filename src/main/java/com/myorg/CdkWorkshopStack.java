@@ -4,6 +4,7 @@ import software.constructs.Construct;
 
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
+import software.amazon.awscdk.services.apigateway.LambdaRestApi;
 import software.amazon.awscdk.services.lambda.Code;
 import software.amazon.awscdk.services.lambda.Function;
 import software.amazon.awscdk.services.lambda.Runtime;
@@ -28,6 +29,11 @@ public class CdkWorkshopStack extends Stack {
                 .build();
         // The name of the handler function is hello.handler 
         // (“hello” is the name of the file and “handler” is the exported function name
+        
+        
+     // Defines an API Gateway REST API resource backed by our "hello" function
+        LambdaRestApi.Builder.create(this, "Endpoint")
+        .handler(hello).build();
     }
    
 }
