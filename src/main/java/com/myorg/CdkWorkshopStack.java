@@ -32,6 +32,7 @@ public class CdkWorkshopStack extends Stack {
         
         
      // Defines an API Gateway REST API resource backed by our "hello" function
+    //  in order to define an API Gateway which proxies all requests to an AWS Lambda function.
         LambdaRestApi.Builder.create(this, "Endpoint")
         .handler(hello).build();
     }
